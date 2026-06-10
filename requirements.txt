@@ -1,0 +1,12 @@
+pandas
+numpy
+google-genai
+python-dotenv
+python-docx
+openpyxl
+transformers
+torch
+peft 
+accelerate
+streamlit
+pydantic
