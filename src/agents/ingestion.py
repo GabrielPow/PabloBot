@@ -1,5 +1,6 @@
 import asyncio
-from agents.ai_model import call_gemini_structured, IngestionRoutingSchema
+from agents.ai_model import call_gemini_structured
+from schema.schema import IngestionRoutingSchema
 
 
 # -------- INGESTOR --------- #
@@ -66,31 +67,9 @@ def ingestion_agent(user_input: str) -> IngestionRoutingSchema:
             conditionals={"error": True}
         )
 
-# -------- ORCHESTRATOR --------- #
-
-class Orchestrator:
-    def __init__(self):
-        #self.agent = Agent()
-        self
-
-    async def run_pipeline(
-        self,
-        objective: str,
-        source_hint: str = "",
-    ) -> str:
-        print("\n--- Orchestrator: starting pipeline ---")
-
-        # Step 1: Understand the Context
-        routing_decsision = await self
-
-        # Step 2: Route the Decision
-        qualified_json = await self.qualifier.qualify(raw_data, criteria)
-
-        # Step 3: Interpret Data
-        final_csv = await self
-
-        # Step 4: Aglomerate Data / Understand Insights
-        insights_csv = await self
-
-        print("\n--- Orchestrator: pipeline complete ---")
-        return final_csv
+class IngestionAgent:
+    async def qualify(self, raw_data: str, criteria: str) -> str:
+        print("[Ingestor] Understanding context...")
+        result = await asyncio.to_thread(ingestion_agent, raw_data, criteria)
+        print(result)
+        return result
