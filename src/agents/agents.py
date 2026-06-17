@@ -65,3 +65,32 @@ def ingestion_agent(user_input: str) -> IngestionRoutingSchema:
             analytical_intent="error_fallback",
             conditionals={"error": True}
         )
+
+# -------- ORCHESTRATOR --------- #
+
+class Orchestrator:
+    def __init__(self):
+        #self.agent = Agent()
+        self
+
+    async def run_pipeline(
+        self,
+        objective: str,
+        source_hint: str = "",
+    ) -> str:
+        print("\n--- Orchestrator: starting pipeline ---")
+
+        # Step 1: Understand the Context
+        routing_decsision = await self
+
+        # Step 2: Route the Decision
+        qualified_json = await self.qualifier.qualify(raw_data, criteria)
+
+        # Step 3: Interpret Data
+        final_csv = await self
+
+        # Step 4: Aglomerate Data / Understand Insights
+        insights_csv = await self
+
+        print("\n--- Orchestrator: pipeline complete ---")
+        return final_csv
